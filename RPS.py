@@ -106,7 +106,7 @@ if(a == 0 and x == 'scissors'):
 
 if(a == 0 and x == 'rock'):
     print('------------------------------')
-    print('You won. Rock beats paper.')
+    print('I won! Paper beats rock.')
     print('------------------------------')
     time.sleep(2)
 
