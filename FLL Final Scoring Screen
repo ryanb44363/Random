@@ -1,0 +1,108 @@
+import turtle
+
+wn = turtle.Screen()
+wn.title('FLL Tournament Scores')
+wn.bgcolor('white')
+wn.setup(width=800, height=600)
+wn.tracer(0)
+
+
+
+pen = turtle.Turtle()
+pen.speed(0)
+pen.color("black")
+pen.penup()
+pen.hideturtle()
+pen.goto(0, 365)
+pen.write("FLL Tournament FINAL Results", align="center", font=("Proxima Nova", 30, "bold", "underline"))
+
+
+
+pen.goto(-600, 250)
+pen.write("Project Award", align="center", font=("Proxima Nova", 24, "bold"))
+
+pen.goto(-600, 125)
+pen.write("Robot Design Award", align="center", font=("Proxima Nova", 24, "bold"))
+
+pen.goto(-600, -50)
+pen.write("Core Values", align="center", font=("Proxima Nova", 24, "bold"))
+
+pen.goto(-600, -225)
+pen.write("Robot Game Award", align="center", font=("Proxima Nova", 24, "bold"))
+
+pen.goto(-600, -400)
+pen.write("Champion's Award", align="center", font=("Proxima Nova", 24, "bold"))
+
+
+
+
+pen.goto(-200, 325)
+pen.write("Tournament A", align="center", font=("Proxima Nova", 24, "normal"))
+
+pen.goto(150, 325)
+pen.write("Tournament B", align="center", font=("Proxima Nova", 24, "normal"))
+
+pen.goto(500, 325)
+pen.write("Tournament C", align="center", font=("Proxima Nova", 24, "normal"))
+
+
+
+
+
+pen.goto(-200, 250)
+pen.write("AAAAA", align="center", font=("Times New Roman", 20, "underline"))
+
+pen.goto(-200, 125)
+pen.write("AAAAA", align="center", font=("Times New Roman", 20, "underline"))
+
+pen.goto(-200, -50)
+pen.write("AAAAA", align="center", font=("Times New Roman", 20, "underline"))
+
+pen.goto(-200, -225)
+pen.write("AAAAA", align="center", font=("Times New Roman", 20, "underline"))
+
+pen.goto(-200, -400)
+pen.write("AAAAA", align="center", font=("Times New Roman", 20, "underline"))
+
+
+ 
+ 
+
+pen.goto(150, 250)
+pen.write("BBBBB", align="center", font=("Times New Roman", 20, "underline"))
+ 
+pen.goto(150, 125)
+pen.write("BBBBB", align="center", font=("Times New Roman", 20, "underline"))
+ 
+pen.goto(150, -50)
+pen.write("BBBBB", align="center", font=("Times New Roman", 20, "underline"))
+ 
+pen.goto(150, -225)
+pen.write("BBBBB", align="center", font=("Times New Roman", 20, "underline"))
+ 
+pen.goto(150, -400)
+pen.write("BBBBB", align="center", font=("Times New Roman", 20, "underline"))
+ 
+ 
+
+  
+ 
+pen.goto(500, 250)
+pen.write("CCCCC", align="center", font=("Times New Roman", 20, "underline"))
+ 
+pen.goto(500, 125)
+pen.write("CCCCC", align="center", font=("Times New Roman", 20, "underline"))
+ 
+pen.goto(500, -50)
+pen.write("CCCCC", align="center", font=("Times New Roman", 20, "underline"))
+ 
+pen.goto(500, -225)
+pen.write("CCCCC", align="center", font=("Times New Roman", 20, "underline"))
+ 
+pen.goto(500, -400)
+pen.write("CCCCC", align="center", font=("Times New Roman", 20, "underline"))
+ 
+
+
+while True:
+    wn.update()
