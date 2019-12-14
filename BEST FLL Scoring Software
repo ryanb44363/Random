@@ -1,0 +1,207 @@
+import turtle
+
+wn = turtle.Screen()
+wn.title('FLL Tournament Scores')
+wn.bgcolor('white')
+wn.setup(width=800, height=600)
+wn.tracer(0)
+
+
+
+pen = turtle.Turtle()
+pen.speed(0)
+pen.color("black")
+pen.penup()
+pen.hideturtle()
+pen.goto(0, 365)
+pen.write("FLL Tournament Scores", align="center", font=("Arial", 24, "bold"))
+
+
+pen.goto(-375, 300)
+pen.write("Team Rank", align="center", font=("Arial", 18, "bold"))
+
+pen.goto(-535, 300)
+pen.write("Score (Total)", align="center", font=("Arial", 18, "underline", 'bold'))
+
+pen.goto(-680, 300)
+pen.write("Number", align="center", font=("Arial", 18, "bold"))
+
+pen.goto(-680, 325)
+pen.write("Team", align="center", font=("Arial", 18, "bold"))
+
+
+
+pen.goto(-680, 260)
+pen.write("21360", align="center", font=("Arial", 18, "normal"))
+
+pen.goto(-680, 205)
+pen.write("25864", align="center", font=("Arial", 18, "bold"))
+
+pen.goto(-680, 150)
+pen.write("19431", align="center", font=("Arial", 18, "normal"))
+
+pen.goto(-680, 95)
+pen.write("20073", align="center", font=("Arial", 18, "bold"))
+
+pen.goto(-680, 40)
+pen.write("32951", align="center", font=("Arial", 18, "normal"))
+
+pen.goto(-680, -15)
+pen.write("19503", align="center", font=("Arial", 18, "bold"))
+
+pen.goto(-680, -70)
+pen.write("36857", align="center", font=("Arial", 18, "normal"))
+
+pen.goto(-680, -125)
+pen.write("42131", align="center", font=("Arial", 18, "bold"))
+
+pen.goto(-680, -180)
+pen.write("39024", align="center", font=("Arial", 18, "normal"))
+
+pen.goto(-680, -235)
+pen.write("39471", align="center", font=("Arial", 18, "bold"))
+
+pen.goto(-680, -290)
+pen.write("47474", align="center", font=("Arial", 18, "normal"))
+
+pen.goto(-680, -345)
+pen.write("47479", align="center", font=("Arial", 18, "bold"))
+
+
+"""
+pen.goto(-680, -160)
+pen.write("3874", align="center", font=("Arial", 18, "normal"))
+
+pen.goto(-680, -195)
+pen.write("17863", align="center", font=("Arial", 18, "bold"))
+
+pen.goto(-680, -230)
+pen.write("47646", align="center", font=("Arial", 18, "normal"))
+
+pen.goto(-680, -265)
+pen.write("1185", align="center", font=("Arial", 18, "bold"))
+
+pen.goto(-680, -300)
+pen.write("40593", align="center", font=("Arial", 18, "normal"))
+
+pen.goto(-680, -335)
+pen.write("44365", align="center", font=("Arial", 18, "bold"))
+
+
+
+pen.goto(-680, -370)
+pen.write("18121", align="center", font=("Arial", 18, "normal"))
+
+
+pen.goto(-680, -405)
+pen.write("19303", align="center", font=("Arial", 18, "bold"))
+"""
+
+
+pen.goto(680, 300)
+pen.write("Team Rank", align="center", font=("Arial", 18, "bold"))
+
+pen.goto(520, 300)
+pen.write("Score (Total)", align="center", font=("Arial", 18, "underline", 'bold'))
+
+pen.goto(375, 300)
+pen.write("Number", align="center", font=("Arial", 18, "bold"))
+
+pen.goto(375, 325)
+pen.write("Team", align="center", font=("Arial", 18, "bold"))
+
+
+
+
+pen.goto(375, 260)
+pen.write("3874", align="center", font=("Arial", 18, "normal"))
+ 
+pen.goto(375, 205)
+pen.write("17863", align="center", font=("Arial", 18, "bold"))
+ 
+pen.goto(375, 150)
+pen.write("47646", align="center", font=("Arial", 18, "normal"))
+ 
+pen.goto(375, 95)
+pen.write("1185", align="center", font=("Arial", 18, "bold"))
+ 
+pen.goto(375, 40)
+pen.write("40593", align="center", font=("Arial", 18, "normal"))
+ 
+pen.goto(375, -15)
+pen.write("44365", align="center", font=("Arial", 18, "bold"))
+ 
+pen.goto(375, -70)
+pen.write("18121", align="center", font=("Arial", 18, "normal"))
+ 
+pen.goto(375, -125)
+pen.write("19303", align="center", font=("Arial", 18, "bold"))
+ 
+pen.goto(375, -180)
+pen.write("18535", align="center", font=("Arial", 18, "normal"))
+ 
+pen.goto(375, -235)
+pen.write("19508", align="center", font=("Arial", 18, "bold"))
+ 
+pen.goto(375, -290)
+pen.write("18117", align="center", font=("Arial", 18, "normal"))
+ 
+pen.goto(375, -345)
+pen.write("18534", align="center", font=("Arial", 18, "bold"))
+ 
+
+
+
+
+
+pen.goto(155, 300)
+pen.write("Team Rank", align="center", font=("Arial", 18, "bold"))
+
+pen.goto(-5, 300)
+pen.write("Score (Total)", align="center", font=("Arial", 18, "underline", 'bold'))
+
+pen.goto(-150, 300)
+pen.write("Number", align="center", font=("Arial", 18, "bold"))
+
+pen.goto(-150, 325)
+pen.write("Team", align="center", font=("Arial", 18, "bold"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pen.goto(-450, 260)
+pen.write("XXXXX", align="center", font=("Arial", 18, "normal"))
+
+
+
+while True:
+    wn.update()
