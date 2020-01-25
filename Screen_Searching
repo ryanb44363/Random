@@ -1,0 +1,114 @@
+import cv2
+import numpy as np
+
+
+#Config Video Start
+cap = cv2.VideoCapture('(204) Final 1 - 2019 Del Mar Regional presented by Qualcomm - YouTube - Google Chrome 2019-12-01 21-23-40.mp4')
+frame_width = int( cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+
+frame_height =int( cap.get( cv2.CAP_PROP_FRAME_HEIGHT))
+
+fourcc = cv2.VideoWriter_fourcc('X','V','I','D')
+
+out = cv2.VideoWriter("output.mp4", fourcc, 5.0, (1980,1020))
+#Config Video End
+
+ 
+ret, frame1 = cap.read() #First frame for which to judge and base movement off of.
+ret, frame2 = cap.read() #Second frame to analyze change.
+print('This is the shape of the frame: ', frame1.shape) 
+
+while cap.isOpened(): #Program opens capture automatically.
+    
+    
+    _, frame = cap.read()
+    hsv_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+
+
+    #Red color
+    low_red = np.array([161, 155, 84])
+    high_red = np.array([179, 255, 255])
+    red_mask = cv2.inRange(hsv_frame, low_red, high_red)
+    red = cv2.bitwise_and(frame, frame, mask=red_mask)
+    
+    #Orange color
+    low_orange = np.array([0, 42, 0])
+    high_orange = np.array([179, 255, 255])
+    orange_mask = cv2.inRange(hsv_frame, low_orange, high_orange)
+    orange = cv2.bitwise_and(frame, frame, mask=orange_mask)
+
+    # Blue color
+    low_blue = np.array([183, 101, 6])
+    high_blue = np.array([225, 176, 85])
+    blue_mask = cv2.inRange(hsv_frame, low_blue, high_blue)
+    blue = cv2.bitwise_and(frame, frame, mask=blue_mask)
+    
+    # Every color except white
+    low = np.array([0, 42, 0])
+    high = np.array([179, 255, 255])
+    mask = cv2.inRange(hsv_frame, low, high)
+    result = cv2.bitwise_and(frame, frame, mask=mask)
+
+    #Analzying Change Throught Multiple Renderings START
+    diff = cv2.absdiff(frame1, frame2)
+    gray = cv2.cvtColor(diff, cv2.COLOR_BGR2GRAY)
+    blur = cv2.GaussianBlur(gray, (5,5), 0)
+    _, thresh = cv2.threshold(blur, 20, 255, cv2.THRESH_BINARY)
+    dilated = cv2.dilate(thresh, None, iterations=3)
+    contours, _ = cv2.findContours(dilated, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    #Analzying Change Throught Multiple Renderings END
+    
+    Orange1 = np.array([179, 255, 255])
+    Orange2 = np.array([179, 255, 255])
+    mask = cv2.inRange(hsv_frame, Orange1, Orange2)
+    Orange = cv2.bitwise_and(frame, frame, mask=mask)
+
+    #cv2.imshow("Frame", frame)
+    #cv2.imshow("Red", red)
+    cv2.imshow('Orange', orange)
+    #cv2.imshow("Blue", blue)
+    #cv2.imshow("Green", green)
+    cv2.imshow("Colors", result)
+    cv2.imshow('JUST ORANGE', Orange)
+    """
+    cv2.putText(result, "Live: {}".format('Movement'), (10, 20), cv2.FONT_HERSHEY_SIMPLEX,
+        1, (0, 0, 255), 3)
+    """
+    
+    for contour in contours:
+
+        (x, y, w, h) = cv2.boundingRect(contour)
+        
+        
+        
+        if cv2.contourArea(contour) < 1500:
+            cv2.rectangle(frame1, (x, y), (x+w, y+h), (0, 0, 180), 1)
+            cv2.putText(frame1, "Live: {}".format('Movement'), (10, 20), cv2.FONT_HERSHEY_SIMPLEX,
+                1, (0, 0, 255), 1)
+        
+        if cv2.contourArea(contour) > 4500:
+            cv2.rectangle(frame1, (x, y), (x+w, y+h), (255, 0, 0), 4)
+            cv2.putText(frame1, "Bot {}".format(''), (x, y), cv2.FONT_HERSHEY_PLAIN,
+                1, (0, 0, 190), 2)
+        
+        
+ 
+    #cv2.drawContours(frame1, contours, -1, (0, 255, 0), 2)
+        #cv2.rectangle(frame1, (x, y), (x+w, y+h), (0, 0, 255), 2)
+        #cv2.putText(frame1, "Live: {}".format('Movement'), (10, 20), cv2.FONT_HERSHEY_SIMPLEX,
+                    #1, (0, 0, 255), 3)
+    #cv2.drawContours(frame1, contours, -1, (0, 255, 0), 2)
+    
+    image = cv2.resize(frame1, (1080,1920))
+    out.write(image)
+    cv2.imshow("feed", frame1)
+    frame1 = frame2
+    ret, frame2 = cap.read()
+
+    if cv2.waitKey(40) == 27:
+        break
+
+cv2.destroyAllWindows()
+cap.release()
+out.release()
+
